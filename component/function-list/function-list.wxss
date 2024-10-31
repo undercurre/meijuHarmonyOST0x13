@@ -1,0 +1,68 @@
+/* plugin/T0x13/component/function-list/function-list.wxss */
+.container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    width: 686rpx;
+    height: 160rpx;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 16rpx;
+}
+
+.box image {
+    width: 64rpx;
+    height: 64rpx;
+    background-color: #267AFF;
+    border-radius: 50%;
+    margin: 32rpx;
+}
+.right {
+    width: 558rpx;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 32rpx;
+    box-sizing: border-box;
+}
+.line {
+    border-bottom: 1rpx solid #F2F2F2;
+}
+.box .text {
+    display: flex;
+    flex-direction: column;
+    font-size: 32rpx;
+}
+.desc {
+    font-size: 24rpx;
+    color: #8A8A8F;
+}
+.switch {
+    width: 96rpx;
+    height: 48rpx;
+    border: 4rpx solid #a0a0a0;
+    border-radius: 48rpx;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 64rpx;
+}
+
+.activeSwitch {
+    background-color: #267AFF;
+    border: none;
+    padding: 8rpx;
+}
+
+.point {
+    width: 26rpx;
+    height: 26rpx;
+    border-radius: 50%;
+    background-color: #a0a0a0;
+    margin: 11rpx;
+}

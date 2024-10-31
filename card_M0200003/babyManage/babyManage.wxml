@@ -1,0 +1,23 @@
+<view class="container">
+    <mx-nav-bar title="宝宝管理" bgColor="#FFFFFF" z-index="{{500}}" bind:click-left="goback"></mx-nav-bar>
+
+    <view class="card" wx:for="{{babyList}}" wx:key="key">
+        <image class="baby-icon" src="{{item.icon == '' ? iconBaby : item.icon}}"></image>
+        <view class="title-block">
+            <text class="title-text">{{item.name}}</text>
+            <view class="cur-block" wx:if="{{item.isCur}}">
+                <text class="cur-text">当前宝宝</text>
+            </view>
+        </view>
+        <text class="age-text">{{item.age}}</text>
+        <view class="card-mask" bind:tap="onCardClick" data-item="{{index}}"></view>
+
+        <image class="icon-edit" src="{{iconEdit}}" bind:tap="onEditClick" data-item="{{index}}"></image>
+    </view>
+
+    <view class="add-btn" bind:tap="onAddClick">
+        <text class="add-text">+ 添加宝宝</text>
+    </view>
+
+    <mx-toast id="mx-toast"/>
+</view>

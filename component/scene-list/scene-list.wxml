@@ -1,0 +1,10 @@
+<!--plugin/T0x13/component/scene-list/scene-list.wxml-->
+<view class="container">
+    <text class="title">模式</text>
+    <view class="list">
+        <view wx:for="{{ list }}" class="box" bindtap="changeChecked" data-index="{{ index }}">
+            <image src="{{ item.mark === checked ? item.active : item.icon }}" class="{{ item.mark === checked ? 'active' : 'image' }}"></image>
+            <text>{{ item.title }}</text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,20 @@
+<view class="container">
+  <mx-nav-bar title="定时提醒" bgColor="#FDF0ED" z-index="{{500}}" bind:click-left="goback"></mx-nav-bar>
+
+  <view class="card" wx:for="{{timerList}}" wx:key="key">
+    <text class="card-name">{{item.name}}</text>
+    <mx-switch class="card-switch" checked="{{ item.isOn }}" active-color="#FF6A4C" bind:change="onSwitchChange" data-item="{{index}}"/>
+    <view class="line"></view>
+    <text class="card-time">{{item.hour > 9 ? item.hour : '0' + item.hour}}:{{item.minute > 9 ? item.minute : '0' + item.minute}}</text>
+    <text class="loop-text">{{item.loopText}}</text>
+    <view class="card-btn" bind:tap="onCardBtnClick" data-item="{{index}}">
+      <mx-icon style="margin-right: 10rpx;" name="arrow" color="#FF6A4C" size="28rpx"/>
+    </view>
+  </view>
+
+  <!-- <mx-button class="add-btn" round type="default" size="large" color="#FF6A4C" bind:click="onAddClick">
+    <text class="btn-text" style="color: #FFFFFF;">添加</text>
+  </mx-button> -->
+
+  <mx-toast id="mx-toast"/>
+</view>

@@ -1,0 +1,18 @@
+
+<view class="container" wx:if="{{ isLoaded && deviceInfo.sn8 === 'M0200003' }}">
+    <card_M0200003 devInfo="{{deviceInfo}}" id="cardM0200003"></card_M0200003>
+</view>
+<view class="container" style="padding-top:{{systemInfo.statusBarHeight+40}}px" wx:elif="{{ isLoaded }}">
+    <!-- 顶部栏 -->
+    <plugin-navbar backTo="{{backTo}}" navBarName="{{ deviceInfo.name }}"></plugin-navbar>
+    <!-- 插件页 -->
+    <!-- <card_79009833 wx:if="{{ deviceInfo.sn8 === '79009833' }}" loadPageData="{{ deviceInfo }}" id="card"></card_79009833> -->
+    
+    <card0 wx:if="{{ deviceInfo.bindType !== 3 }}" loadPageData="{{ deviceInfo }}" id="card"></card0>
+    <div wx:else class="unuse">
+        <div>暂不支持蓝牙绑定控制</div>
+    </div>
+    <!-- 尾部 -->
+</view>
+<mx-toast id="mx-toast"/>
+<mx-dialog id="mx-dialog" />

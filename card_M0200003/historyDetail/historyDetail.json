@@ -1,0 +1,11 @@
+{
+    "navigationStyle": "custom",
+    "usingComponents": {
+      "mx-nav-bar": "/miniprogram_npm/m-ui/mx-nav-bar/index",
+      "mx-toast": "/miniprogram_npm/m-ui/mx-toast/index",
+      "mx-tab": "/miniprogram_npm/m-ui/mx-tab/index",
+      "mx-tabs": "/miniprogram_npm/m-ui/mx-tabs/index",
+      "van-calendar": "../../assets/vant/calendar/index",
+      "mx-swipe-cell": "/miniprogram_npm/m-ui/mx-swipe-cell/index"
+    }
+}

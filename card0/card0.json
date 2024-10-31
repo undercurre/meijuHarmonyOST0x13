@@ -1,0 +1,13 @@
+{
+        "component": true,
+        "usingComponents": {
+                "mx-noticebar": "/pages/component/m-ui/mx-noticebar/mx-noticebar",
+                "control-cell": "../component/control-cell/control-cell",
+                "scene-list": "../component/scene-list/scene-list",
+                "function-list": "../component/function-list/function-list",
+                "light-slider0": "../component/light-slider0/light-slider",
+                "light-slider": "../component/light-slider/light-slider",
+                "time-picker": "../component/time-picker/time-picker",
+                "mbutton": "/pages/component/mbutton/mbutton"
+        }
+}

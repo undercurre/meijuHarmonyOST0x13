@@ -1,0 +1,231 @@
+.container{
+  width: 750rpx;
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+.baby-card{
+  width: 686rpx;
+  height: 104rpx;
+  border-radius: 32rpx;
+  margin-left: 32rpx;
+  margin-top: 32rpx;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.title-text{
+  font-family: PingFangSC-Regular;
+  font-size: 32rpxpx;
+  color: #333333;
+  font-weight: 400;
+  margin-left: 32rpx;
+}
+.baby-name{
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #8A8A8F;
+  font-weight: 400;
+  margin-right: 16rpx;
+}
+.select-block{
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+}
+.baby-select-card{
+  width: 686rpx;
+  height: 160rpx;
+  border-radius: 32rpx;
+  background-color: #F9F9F9;
+  margin-top: 16rpx;
+  margin-left: 32rpx;
+  display: flex;
+  position: relative;
+}
+.baby-icon{
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  left: 48rpx;
+  top: 40rpx;
+}
+.title-block{
+  width: 440rpx;
+  height: 44rpx;
+  position: absolute;
+  left: 176rpx;
+  top: 40rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.title-text-2{
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: rgba(0,0,0,0.85);
+  font-weight: 400;
+  margin-left: 0;
+}
+.cur-block{
+  width: 128rpx;
+  height: 40rpx;
+  border-radius: 24rpx;
+  background-color: #FDF1EE;
+  margin-left: 32rpx;display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cur-text{
+  font-family: PingFangSC-Medium;
+  font-size: 22rpx;
+  color: #FF6A4C;
+  font-weight: 500;
+}
+.age-text{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #8A8A8F;
+  font-weight: 400;
+  position: absolute;
+  left: 176rpx;
+  top: 90rpx;
+}
+.save-block{
+  width: 750rpx;
+  height: 208rpx;
+  background-color: #FFFFFF;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+}
+.save-btn{
+  width: 686rpx;
+  height: 92rpx;
+  border-radius: 46rpx;
+  position: absolute;
+  left: 32rpx;
+  bottom: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.save-text{
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+.note-block{
+  width: 686rpx;
+  border-radius: 32rpx;
+  background-color: #FFFFFF;
+  margin-top: 24rpx;
+  margin-left: 32rpx;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.04);
+}
+.note-title{
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #333333;
+  font-weight: 500;
+  margin-top: 28rpx;
+  margin-left: 44rpx;
+}
+.input-block{
+  width: 602rpx;
+  min-height: 96rpx;
+  margin-top: 28rpx;
+  margin-left: 40rpx;
+  margin-bottom: 52rpx;
+}
+.cell-arrow{
+  margin-left: 16rpx;
+}
+.bottle-type-block-1{
+  width: 686rpx;
+  height: 274rpx;
+  background-color: #FFFFFF;
+  border-radius: 32rpx;
+  margin-left: 32rpx;
+  margin-top: 24rpx;
+  position: relative;
+  display: flex;
+}
+.img-bottle{
+  width: 280rpx;
+  height: 258rpx;
+  position: absolute;
+  left: 40rpx;
+  top: 8rpx;
+}
+.unit-text{
+opacity: 0.4;
+font-family: PingFangSC-Regular;
+font-size: 28rpx;
+color: #000000;
+line-height: 30rpx;
+font-weight: 400;
+position: absolute;
+left: 520rpx;
+top: 126rpx;
+}
+.bottle-type-block-2{
+width: 686rpx;
+height: 412rpx;
+border-radius: 32rpx;
+margin-left: 32rpx;
+margin-top: 24rpx;
+background-color: #FFFFFF;
+display: flex;
+position: relative;
+flex-direction: column;
+overflow: hidden;
+}
+.line{
+width: 594rpx;
+height: 1px;
+background-color: #F2F2F2;
+margin-left: 44rpx;
+}
+.bottle-type-title{
+width: 300rpx;
+height: 44rpx;
+margin-left: 44rpx;
+margin-top: 32rpx;
+font-family: PingFangSC-Medium;
+font-size: 32rpx;
+color: #333333;
+font-weight: 500;
+}
+.bottle-type-block{
+width: 686rpx;
+height: 180rpx;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+margin-top: 22rpx;
+}
+.type-btn{
+width: 160rpx;
+height: 60rpx;
+border-radius: 30rpx;
+display: flex;
+justify-content: center;
+align-items: center;
+border: 1px solid;
+margin-left: 30rpx;
+margin-right: 30rpx;
+}

@@ -1,0 +1,14 @@
+
+<view class="container">
+    <view class="sliderBox">
+        <van-slider max="100" value="{{ 100 - percentage }}" inactive-color="linear-gradient(180deg,  {{topColor}} 0%, {{bottomColor}} 100%)" vertical bind:drag="onDrag" use-button-slot bind:change="onChange">
+            <view class="custom-button" slot="button">
+                <view class="show-button"></view>
+            </view> 
+        </van-slider>
+    </view>
+    <view class="text">
+        <text class="title">{{ title }}</text>
+        <text class="percentage">{{ (percentage) | Int }}%</text>
+    </view>
+</view>

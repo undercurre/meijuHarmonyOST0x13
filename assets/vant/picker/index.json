@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "picker-column": "../picker-column/index",
+    "loading": "/pages/component/vant/loading/index"
+  }
+}

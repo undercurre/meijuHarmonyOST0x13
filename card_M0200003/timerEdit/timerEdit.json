@@ -1,0 +1,16 @@
+{
+  "navigationStyle": "custom",
+    "usingComponents": {
+        "mx-nav-bar": "/miniprogram_npm/m-ui/mx-nav-bar/index",
+        "mx-toast": "/miniprogram_npm/m-ui/mx-toast/index",
+        "mx-button": "/miniprogram_npm/m-ui/mx-button/index",
+        "mx-icon": "/miniprogram_npm/m-ui/mx-icon/index",
+        "mx-cell": "/miniprogram_npm/m-ui/mx-cell/index",
+        "mx-cell-group": "/miniprogram_npm/m-ui/mx-cell-group/index",
+        "mx-picker": "/miniprogram_npm/m-ui/mx-picker/index",
+        "mx-switch": "/miniprogram_npm/m-ui/mx-switch/index",
+        "mx-dialog": "/miniprogram_npm/m-ui/mx-dialog/index",
+        "mx-field": "/miniprogram_npm/m-ui/mx-field/index",
+        "mx-popup": "/miniprogram_npm/m-ui/mx-popup/index"
+    }
+}

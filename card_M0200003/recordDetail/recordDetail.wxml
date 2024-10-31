@@ -1,0 +1,166 @@
+<view class="container" style="background-image: {{ !isLoaded ? '' : isMonther ? 'linear-gradient(180deg, rgba(255,106,76,0.12) 0%, rgba(255,107,77,0.00) 79%);' : 'linear-gradient(180deg, rgba(38,122,255,0.12) 0%, rgba(56,126,246,0.00) 79%);'}}">
+    <mx-nav-bar title="详细记录" bgColor="rgba(0,0,0,0)" z-index="{{500}}" bind:click-left="goback"></mx-nav-bar>
+
+    <!-- 修改用户 -->
+    <view class="baby-card" bind:tap="onBabyCardClick">
+        <text class="title-text">所属宝宝</text>
+        <view style="margin-right: 32rpx;">
+            <text class="baby-name">{{ curBabyName }}</text>
+            <mx-icon slot="right-icon" name="arrow" color="#C8C7CC" size="28rpx" />
+        </view>
+    </view>
+
+    <!-- 母乳喂养类型数据 -->
+    <view class="mon-type-data-block" wx:if="{{ isMonther && isLoaded }}">
+        <mx-cell-group>
+            <mx-cell title="{{item.name}}" 
+                value="{{item.value}}" 
+                wx:for="{{montherDataList}}" 
+                wx:key="key" 
+                bind:tap="onMontherDataItemClick" 
+                data-item="{{index}}">
+                <mx-icon class="cell-arrow" slot="right-icon" name="arrow" color="#C8C7CC" size="28rpx" wx:if="{{item.isCanEdit}}" />
+            </mx-cell>
+        </mx-cell-group>
+    </view>
+
+    <!-- 奶瓶容量 -->
+    <view class="bottle-type-block-1" wx:if="{{ !isMonther && isLoaded }}">
+      <image class="img-bottle" src="{{iconBottle}}"></image>
+      
+      <text class="unit-text">ml</text>
+      <picker-view indicator-style="height: 56rpx;" 
+        style="width: 300rpx; height: 274rpx; margin-left: 320rpx;" 
+        value="{{ curBottleIndex }}" 
+        bindchange="onBottleChange"
+        bindpickend='onBottleEnd'
+      >
+        <picker-view-column>
+          <view wx:for="{{bottleArr}}" wx:key="key" style="line-height: 56rpx; text-align: center; font-size: 40rpx; color: #333333;">{{item}}</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+
+    <!-- 奶瓶喂养数据 -->
+    <view class="bottle-type-block-2" wx:if="{{ !isMonther && isLoaded }}">
+      <mx-cell style="width: 660rpx; margin-left: 18rpx;" 
+        title="喂养时间" 
+        value="{{ bottleStartTime }}" 
+        border="{{ false }}" 
+        bind:tap="onBottleTimeClick"
+      >
+        <mx-icon class="cell-arrow" slot="right-icon" name="arrow" color="#C8C7CC" size="28rpx"/>
+      </mx-cell>
+      <view class="line"></view>
+      <view class="bottle-type-title">喂养类型</view>
+      
+      <view class="bottle-type-block">
+        <view class="type-btn" 
+          wx:for="{{bottleTypeArr}}" 
+          wx:key="key"
+          style="background-color: {{index == curBottleTypeIndex ? '#267AFF' : '#FFFFFF'}}; border-color: {{index == curBottleTypeIndex ? '#FFFFFF' : '#8A8A8F'}};"
+          bind:tap="onBottleTypeClick"
+          data-item="{{index}}"
+        >
+          <text class="" style="color: {{index == curBottleTypeIndex ? '#FFFFFF' : '#8A8A8F'}};">{{item}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 备注 -->
+    <view class="note-block">
+        <text class="note-title">备注</text>
+        <view class="input-block">
+            <mx-field value="{{ curNote }}" 
+                type="textarea" 
+                placeholder="选填" 
+                autosize 
+                maxlength="20" 
+                show-word-limit="true"
+                custom-style="background-color: #F9F9F9; border-radius: 32rpx;"
+                bind:change="onInputChange">
+            </mx-field>
+        </view>
+    </view>
+
+    <view style="width: 70rpx; height: 210rpx;"></view>
+
+    <!-- 保存 -->
+    <view class="bottom-block" wx:if="{{isLoaded}}">
+      <mx-button round type="default" size="large" color="{{isMonther ? '#FEF6F5' : '#E9F1FF'}}" style="width: 332rpx;" bind:click="onDeleteClick">
+        <text class="btn-text" style="color: {{isMonther ? '#FF6A4C' : '#267AFF' }};">删除</text>
+      </mx-button>
+      <mx-button round type="default" size="large" color="{{isMonther ? '#FF6A4C' : '#267AFF'}}" style="width: 332rpx;" bind:click="onSaveClick" >
+        <text class="btn-text" style="color: #ffffff;">保存</text>
+      </mx-button>
+    </view>
+
+    <!-- 用户选择面板 -->
+    <mx-action-sheet 
+        show="{{ isShowBabySelect }}" 
+        title="请选择宝宝" 
+        closeIcon="" 
+        close-on-click-overlay="true" 
+        cancel-text="取消"
+        bind:close="onBabySelectClose"
+        bind:cancel="onBabySelectClose"
+    >
+        <view class="select-block">
+            <view class="baby-select-card" 
+                wx:for="{{ curBabyList }}" 
+                wx:key="key" 
+                style="border: 2px solid {{ curBabySelectIndex == index ? 'rgba(38,122,255,1)' : 'rgba(255,255,255,1)'}};"
+                bind:tap="onBabySelectClick"
+                data-item="{{index}}"
+            >
+                <image class="baby-icon" src="{{item.icon == '' ? iconBaby : item.icon}}"></image>
+                <view class="title-block">
+                    <text class="title-text-2">{{item.name}}</text>
+                    <view class="cur-block" wx:if="{{item.isCur}}">
+                        <text class="cur-text">当前宝宝</text>
+                    </view>
+                </view>
+                <text class="age-text">{{item.age}}</text>
+            </view>
+        </view>
+    </mx-action-sheet>
+
+    <!-- 开始时间/喂养时间选择 -->
+    <mx-datetime-picker
+        description="请选择时间"
+        bind:confirm="onDatePickConfirm"
+        bind:cancel="onDatePickCancel"
+        bind:close="onDatePickCancel"
+        show="{{ isShowDatePicker }}"
+        type="datetime"
+        data-type="datetime"
+        value="{{ curPickDate }}"
+        min-date="{{ minPickDate }}"
+        max-date="{{ maxPickDate }}"
+    />
+
+    <!-- 时长选择 -->
+    <mx-picker
+        bind:confirm="onTimeLongPickConfirm"
+        bind:cancel="onTimeLongPickCancel"
+        bind:close="onTimeLongPickCancel"
+        description="请选择时长"
+        show="{{ isShowTimeLongPicker }}"
+        columns="{{ timerLongArr }}"
+        select-description="分钟"
+        default-index="{{ curTimeLongIndex }}"
+    />
+
+    <!-- 左右侧选择 -->
+    <mx-picker
+        bind:confirm="onSidePickConfirm"
+        bind:cancel="onSidePickCancel"
+        bind:close="onSidePickCancel"
+        description="请选择喂养位置"
+        show="{{ isShowSidePicker }}"
+        columns="{{ sideArr }}"
+        default-index="{{ curSideIndex }}"
+    />
+
+    <mx-toast id="mx-toast"/>
+</view>

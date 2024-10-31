@@ -1,0 +1,13 @@
+{
+    "component": true,
+    "usingComponents": {
+      "mx-nav-bar": "/miniprogram_npm/m-ui/mx-nav-bar/index",
+      "mx-nav": "/miniprogram_npm/m-ui/mx-nav/index",
+      "mx-slider": "/miniprogram_npm/m-ui/mx-slider/index",
+      "mx-toast": "/miniprogram_npm/m-ui/mx-toast/index",
+      "mx-tabbar": "/miniprogram_npm/m-ui/mx-tabbar/index",
+      "mx-tabbar-item": "/miniprogram_npm/m-ui/mx-tabbar-item/index",
+      "mx-tabber-button-item": "/miniprogram_npm/m-ui/mx-tabbar-button-item/index",
+      "mx-picker": "/miniprogram_npm/m-ui/mx-picker/index"
+    }
+  }

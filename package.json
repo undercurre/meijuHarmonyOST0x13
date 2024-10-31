@@ -1,0 +1,13 @@
+{
+  "name": "@meijuHarmonyOS/T0x13",
+  "version": "2.2.7",
+  "description": "0x13npm包",
+  "main": "./index/index",
+  "miniprogram": "T0x13",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "npm publish --registry=https://npm.midea.com/repository/U-MeijuApp/"
+  },
+  "author": "liumn",
+  "license": "ISC"
+}

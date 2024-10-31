@@ -1,0 +1,21 @@
+/* plugin/T0x13/component/control-cell/control-cell.wxss */
+Page {
+    background-color: #f5f5f5;
+}
+.container {
+    width: 686rpx;
+    height: 160rpx;
+    background-color: #ffffff;
+    border-radius: 24rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0 32rpx;
+    padding: 0 32rpx;
+}
+
+.button {
+    width: 96rpx;
+    height: 96rpx;
+}

@@ -1,0 +1,60 @@
+<view class="container">
+    <mx-nav-bar title="历史记录" bgColor="#FFFFFF" z-index="{{500}}" bind:click-left="goback"></mx-nav-bar>
+
+    <view class="top-block">
+        <mx-tabs class="tab-block" animated active="{{ curTabIndex }}" bind:change="onTabChange">
+            <mx-tab title="全部"></mx-tab>
+            <mx-tab title="母乳喂养"></mx-tab>
+            <mx-tab title="奶瓶喂养"></mx-tab>
+        </mx-tabs>
+    </view>
+
+    <view class="date-block">
+        <view class="date-card">
+            <view class="date-text-block" bind:tap="onDateClick">
+              <text class="date-text">{{ curDateText }}</text>
+            </view>
+            <view class="left-right-btn" style="left: 100rpx;" bind:tap="onLeftClick">
+                <image class="left-right-icon" src="{{ iconLeft }}"></image>
+            </view>
+            <view class="left-right-btn" style="right: 100rpx;" bind:tap="onRightClick">
+                <image class="left-right-icon" src="{{ iconRight }}"></image>
+            </view>
+
+            <text class="total-text" wx:if="{{totalLine1 != ''}}">{{ totalLine1 }}</text>
+            <text class="total-text" wx:if="{{totalLine2 != ''}}">{{ totalLine2 }}</text>
+            <text class="no-data" wx:if="{{totalLine1 == '' && totalLine2 == ''}}">暂无数据</text>
+        </view>
+    </view>
+
+    <view class="blank"></view>
+    <view class="data-card" wx:for="{{ dataListShow }}" wx:key="key">
+      <mx-swipe-cell right-width="{{ 80 }}" async-close bind:close="onSwipeClose" data-item="{{index}}">
+        <view class="contant-block" bind:tap="onItemClick" data-item="{{index}}">
+          <view style="display: flex; flex-direction: row;">
+            <text class="time-text">{{ item.time }}</text>
+            <text class="type-text">{{ item.type }}</text>
+          </view>
+          <text class="content-text">{{ item.content }}</text>
+        </view>
+        <view slot="right" class="swipe-block">删除</view>
+      </mx-swipe-cell>
+    </view>
+    <view class="blank-2"></view>
+
+    <van-calendar
+      id="myCalender"
+      class="calendar"
+      title="请选择日期"
+      color="#FF6A4C"
+      row-height="48"
+      show-subtitle="{{ false }}"
+      min-date="{{ minDate }}"
+      max-date="{{ maxDate }}"
+      defaultDate="{{ curTimeVal }}"
+      show="{{ isCalenderShow }}"
+      bind:close="onCalenderClose"
+      bind:confirm="onCalenderConfirm"/>
+
+    <mx-toast id="mx-toast"/>
+</view>

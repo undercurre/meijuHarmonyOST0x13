@@ -1,0 +1,95 @@
+<view class="container">
+  <mx-nav-bar title="{{isNew ? '添加定时' : '编辑定时'}}" bgColor="#FDF0ED" z-index="{{500}}" bind:click-left="goback"></mx-nav-bar>
+
+  <view class="time-block">
+    <picker-view indicator-style="height: 56rpx;" 
+        style="width: 480rpx; height: 440rpx; margin-left: 96rpx;" 
+        value="{{ curTimeIndex }}" 
+        bindchange="onTimeChange"
+        bindpickend='onTimeEnd'
+      >
+        <picker-view-column>
+          <view wx:for="{{hourArr}}" wx:key="key" style="line-height: 56rpx; text-align: center; font-size: 40rpx; color: #333333;">{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{minuteArr}}" wx:key="key" style="line-height: 56rpx; text-align: center; font-size: 40rpx; color: #333333;">{{item}}</view>
+        </picker-view-column>
+      </picker-view>
+      
+      <text class="time-unit" style="left: 248rpx;">时</text>
+      <text class="time-unit" style="left: 484rpx;">分</text>
+  </view>
+
+  <view class="set-block">
+    <mx-cell-group>
+      <mx-cell title="标签" value="{{curTag}}" bind:tap="onTagCellClick">
+        <mx-icon class="cell-arrow" slot="right-icon" name="arrow" color="#C8C7CC" size="28rpx"/>
+      </mx-cell>
+      <mx-cell title="重复设置" border="{{ false }}" bind:tap="onLoopCellClick">
+        <view class="loop-block">{{curLoopText}}</view>
+        <mx-icon class="cell-arrow" slot="right-icon" name="arrow" color="#C8C7CC" size="28rpx"/>
+      </mx-cell>
+    </mx-cell-group>
+  </view>
+
+  <!-- <view class="set-block">
+    <mx-cell-group>
+      <mx-cell title="灯光闪烁">
+        <mx-switch slot="right-icon" checked="{{ isLightOn }}" active-color="#FF6A4C" bind:change="onLightSwitchChange"/>
+      </mx-cell>
+      <mx-cell title="声音提醒" label="母婴灯响铃提醒" border="{{ false }}">
+        <mx-switch slot="right-icon" checked="{{ isNoticeOn }}" active-color="#FF6A4C" bind:change="onNoticeSwitchChange"/>
+      </mx-cell>
+    </mx-cell-group>
+  </view> -->
+
+  <view class="bottom-block">
+    <!-- <mx-button round type="default" size="large" color="#FEF6F5" style="width: 332rpx;" bind:click="onDeleteClick" wx:if="{{!isNew}}">
+      <text class="btn-text" style="color: #FF6A4C;">删除</text>
+    </mx-button>
+    <mx-button round type="default" size="large" color="#FF6A4C" style="width: 332rpx;" bind:click="onEditSaveClick" wx:if="{{!isNew}}">
+      <text class="btn-text" style="color: #ffffff;">保存</text>
+    </mx-button> -->
+    <!-- <mx-button round type="default" size="large" color="#FF6A4C" style="width: 686rpx;" bind:click="onAddSaveClick" wx:if="{{isNew}}">
+      <text class="btn-text" style="color: #ffffff;">保存</text>
+    </mx-button> -->
+    <mx-button round type="default" size="large" color="#FF6A4C" style="width: 686rpx;" bind:click="onAddSaveClick">
+      <text class="btn-text" style="color: #ffffff;">保存</text>
+    </mx-button>
+  </view>
+
+  <mx-dialog id="mx-dialog" use-slot="true" closeOnClickOverlay="true">
+      <mx-field value="{{ curTag }}" placeholder="请输入标签" maxlength="10" bind:change="onInputChange"></mx-field>
+  </mx-dialog>
+
+  <mx-popup position="bottom" round show="{{ isShowPopup }}" bind:close="onPopupClose">
+    <view class="pop-block">
+      <view class="title-block">
+        <text class="pop-title">重复周期</text>
+      </view>
+
+      <view class="type-block" wx:for="{{popArr}}" wx:key="key" bind:tap="onLoopTypeClick" data-item="{{index}}">
+        <text class="type-text">{{ item }}</text>
+        <mx-icon class="select-icon" name="success" color="#FF6A4C" size="30rpx" wx:if="{{curLoopIndex == index}}"/>
+      </view>
+      <view class="week-block" wx:if="{{curLoopIndex == 2}}">
+        <view class="week-item" wx:for="{{weekArr}}" wx:key="key" style="background-color: {{item.isSelect ? '#FF6A4C' : '#C7C7CC'}};" bind:tap="onWeekClick" data-item="{{index}}">
+          <text class="week-text">{{item.name}}</text>
+        </view>
+      </view>
+
+      <view style="width: 750rpx; height: 16rpx; background-color: #f9f9f9;"></view>
+      <view class="pop-bottom-block">
+        <view class="pop-bottom-btn" bind:tap="onPopupClose">
+          <text class="cancel-text" style="color: #666666;">取消</text>
+        </view>
+        <view style="width: 1px; height: 100rpx; background-color: #f9f9f9;"></view>
+        <view class="pop-bottom-btn" bind:tap="onPopConfirmClick">
+          <text class="cancel-text" style="color: #FF6A4C;">确定</text>
+        </view>
+      </view>
+    </view>
+  </mx-popup>
+
+  <mx-toast id="mx-toast"/>
+</view>

@@ -1,0 +1,15 @@
+<!--plugin/T0x13/component/time-picker/time-picker.wxml-->
+<view class="container" bindtap="onCancel">
+    <van-picker
+        class="pickerBox"
+        custom-class="picker"
+        columns="{{ array }}"
+        show-toolbar
+        title="选择时间"
+        default-index="{{ timeIndex }}"
+        catch:cancel="onCancel"
+        catch:confirm="pickerChange"
+        animation="{{pickerAnimationData}}"
+    >
+    </van-picker>
+</view>

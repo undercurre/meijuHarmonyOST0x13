@@ -1,0 +1,49 @@
+<!-- 该组件支持 '79009833','22222222','79010914','26222222'-->
+<view class="container">
+        <!-- wifi连接提示栏 -->
+        <mx-noticebar
+         wx:if="{{loadPageData.bindType === 3 && loadPageData.onlineStatus == '1' && !isFakeWifi && !isHideNotice}}"
+         mode="all"
+         type="warn"
+         btn-text="连接WiFi"
+         notice="此设备未连接wifi，存在安全风险"
+         bindonBtnClicked='goToWifiConnect'
+         bindonCloseIconClicked='hideNotice'
+        ></mx-noticebar>
+        <!-- 连接状态栏 -->
+        <text class="netStatus">{{ netTitle }}</text>
+        <!-- 关灯状态 -->
+        <view class="bg" wx:if="{{ deviceStatus.power !== 'on' || loadPageData.onlineStatus == '0'}}">
+                <view class="bgTitle">
+                        <text wx:if="{{ loadPageData.onlineStatus == '1' || loadPageData.onlineStatus === undefined || (loadPageData.onlineStatus == '0' && loadPageData.sn8 !== '79009833') }}">
+                                {{ statusTitle }}
+                        </text>
+                        <view class="bluetoothBox" wx:if="{{ loadPageData.onlineStatus == '0' && loadPageData.sn8 === '79009833' }}">
+                                <view wx:if="{{ isConnecting }}" class="bluetooth connecting">
+                                        <image src="{{ imgUrl + 'connecting.png' }}" class="bluetoothConnecting"></image>
+                                        <view class="connectingText">
+                                                <text class="connectingTitle">连接中</text>
+                                                <text class="connectingDecs">请将手机尽量靠近设备</text>
+                                        </view>
+                                </view>
+                                <view wx:if="{{ !isConnecting }}" class="bluetooth unconnecting" bindtap="reconnect">
+                                        <image src="{{imgUrl + 'bluetooth.png'}}" class="bluetoothImg"></image>
+                                        <text class="bluetoothText">点击连接蓝牙</text>
+                                </view>
+                        </view>
+                </view>
+                <control-cell bindbuttonTap="powerToggle" style="margin: 200rpx 0 0 0;" OnOff="{{ deviceStatus.power === 'on' }}" disabled="{{ loadPageData.onlineStatus == '0' }}"></control-cell>
+        </view>
+        <!-- 开灯状态 -->
+        <view class="main" wx:if="{{ deviceStatus.power == 'on' && loadPageData.onlineStatus == '1' }}">
+                <view class="light">
+                        <light-slider id="colorTemperature" bindsliderDrag='sliderDrag' bindsliderTap='sliderChange' percentage="{{ 255 - deviceStatus.color_temperature }}"></light-slider>
+                        <light-slider id="brightness" bindsliderDrag='sliderDrag' bindsliderTap='sliderChange' percentage="{{ deviceStatus.brightness }}" title="亮度" topColor="#B1D4FF" bottomColor="#004496"></light-slider>
+                </view>
+                <control-cell bindbuttonTap="powerToggle" class="margin" OnOff="{{ deviceStatus.power === 'on' }}"></control-cell>
+                <scene-list wx:if="{{ loadPageData.sn8 !== '79010914' }}" bindsceneTap="toggleSceneLed" class="margin" list="{{ scene }}" checked="{{ deviceStatus.scene_light }}" id="scene"></scene-list>
+                <function-list wx:if="{{ loadPageData.sn8 !== '79010914' }}" id="delay" style="margin-bottom: 82rpx;" list="{{ functionList }}" bindpickerOpen="makePickerAction" binddelayTap="toggleDelay"></function-list>
+        </view>
+        <!-- 时间拾取器 -->
+        <time-picker wx:if="{{showPicker}}" style="z-index: {{showPicker ? 99999 : -99999}}" id="timePicker" binddelayTap="toggleDelay" bindpickerGone="pickerBack" timeIndex="{{ deviceStatus.delay_light_off - 1 }}"></time-picker>   
+</view>

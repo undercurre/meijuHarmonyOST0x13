@@ -1,0 +1,61 @@
+<view class="container">
+    <mx-nav-bar title="宝宝信息" bgColor="#FFFFFF" z-index="{{500}}" bind:click-left="goback"></mx-nav-bar>
+
+    <view class="image-block">
+        <image class="user-image" src="{{curBabyImage == '' ? iconBaby : curBabyImage}}" bind:tap="onImageEditClick"></image>
+        <!-- <view class="edit-bg">
+            <mx-icon name="edit" color="white" size="32rpx"/>
+        </view> -->
+    </view>
+
+    <mx-cell-group>
+        <mx-cell title="昵称" value="{{curName}}" bind:click="onNameClick">
+            <mx-icon slot="right-icon" name="arrow" color="#C8C7CC" size="28rpx" />
+        </mx-cell>
+        <mx-cell title="性别" value="{{curSex}}" bind:click="onSexClick">
+            <mx-icon slot="right-icon" name="arrow" color="#C8C7CC" size="28rpx" />
+        </mx-cell>
+        <mx-cell title="出生日期" value="{{curBirthday}}" bind:click="onBirthdayClick">
+            <mx-icon slot="right-icon" name="arrow" color="#C8C7CC" size="28rpx" />
+        </mx-cell>
+    </mx-cell-group>
+
+    <view class="bottom-block">
+        <view class="bottom-btn" style="background-color: #FEF6F5;" bind:tap="onDeleteClick">
+            <text class="btn-text" style="color: #FF6A4C;">删除</text>
+        </view>
+        <view class="bottom-btn" style="background-color: #FF6A4C" bind:tap="onSaveClick">
+            <text class="btn-text" style="color: #FFFFFF;">保存</text>
+        </view>
+    </view>
+
+    <mx-dialog id="mx-dialog" use-slot="true" closeOnClickOverlay="true">
+        <mx-field value="{{ curName }}" placeholder="请输入用户名" maxlength="10" bind:change="onInputChange"></mx-field>
+    </mx-dialog>
+
+    <mx-picker
+        bind:confirm="onSexConfirm"
+        bind:cancel="onSexCancel"
+        bind:close="onSexCancel"
+        description="请选择性别"
+        show="{{ isShowSexPicker }}"
+        columns="{{ sexArr }}"
+        default-index="{{ sexPickIndex }}"
+    />
+
+    <mx-datetime-picker
+        description="请选择出生日期"
+        bind:confirm="onBirthdayConfirm"
+        bind:cancel="conBirthdayCancel"
+        bind:close="conBirthdayCancel"
+        show="{{ isShowDatePicker }}"
+        type="date"
+        data-type="date"
+        value="{{ curPickDate }}"
+        min-date="{{ minPickDate }}"
+        max-date="{{ maxPickDate }}"
+        formatter="{{ formatter }}"
+    />
+
+    <mx-toast id="mx-toast"/>
+</view>

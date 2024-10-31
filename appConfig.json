@@ -1,0 +1,18 @@
+{
+  "subpackages": [{
+      "name": "T0x13",
+      "root": "plugin/T0x13",
+      "pages": [
+          "index/index",
+          "card_M0200003/babyManage/babyManage",
+          "card_M0200003/babyEdit/babyEdit",
+          "card_M0200003/babyAdd/babyAdd",
+          "card_M0200003/historyDetail/historyDetail",
+          "card_M0200003/recordDetail/recordDetail",
+          "card_M0200003/montherFeed/montherFeed",
+          "card_M0200003/bottleFeed/bottleFeed",
+          "card_M0200003/deviceTimer/deviceTimer",
+          "card_M0200003/timerEdit/timerEdit"
+      ]
+  }]
+}

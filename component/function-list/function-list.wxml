@@ -1,0 +1,17 @@
+<!--plugin/T0x13/component/function-list/function-list.wxml-->
+<view class="container">
+    <view wx:for="{{ list }}" catchtap="makePickerAction">
+            <view class="box" >
+                <image src="{{ item.icon }}"></image>
+                <view class="right {{ index !== list.length - 1 ? 'line' : '' }}">
+                    <view class="text">
+                        <text>{{ item.title }}</text>
+                        <text class="desc">{{ item.desc }}</text>
+                    </view>
+                    <view  class="switch {{item.check ? 'activeSwitch' : ''}}" catchtap="changeSwitch" data-index="{{index}}">
+                        <view animation="{{item.animationData}}" class="point"></view>
+                    </view>
+                </view>
+            </view>
+    </view>
+</view>

@@ -1,0 +1,24 @@
+
+<view class="container">
+        <!-- 关灯状态 -->
+        <view class="bg" wx:if="{{ deviceStatus.power !== 'on' || loadPageData.onlineStatus == '0' }}">
+                <view class="bgTitle">
+                        <text>
+                                {{ statusTitle }}
+                        </text>
+                </view>
+                <control-cell bindbuttonTap="powerToggle" style="margin: 200rpx 0 0 0;" OnOff="{{ deviceStatus.power === 'on' }}" disabled="{{ loadPageData.onlineStatus == '0' }}"></control-cell>
+        </view>
+        <!-- 开灯状态 -->
+        <view class="main" wx:if="{{ deviceStatus.power == 'on' && loadPageData.onlineStatus == '1' }}">
+                <view class="light">
+                        <light-slider wx:if="{{ loadPageData.sn8 === '79009833' }}" id="colorTemperature" bindsliderDrag='sliderDrag' bindsliderTap='sliderChange' percentage="{{ 255 - deviceStatus.color_temperature }}" reverse="{{true}}"></light-slider>
+                        <light-slider wx:if="{{ loadPageData.sn8 === '79009833' }}" id="brightness" bindsliderDrag='sliderDrag' bindsliderTap='sliderChange' percentage="{{ deviceStatus.brightness }}" title="亮度" min="{{1}}" topColor="#B1D4FF" bottomColor="#004496"></light-slider>
+                </view>
+                <control-cell bindbuttonTap="powerToggle" class="margin" OnOff="{{ deviceStatus.power === 'on' }}"></control-cell>
+                <!-- <scene-list bindsceneTap="toggleSceneLed" class="margin" list="{{ scene }}" checked="{{ deviceStatus.scene_light }}" id="scene"></scene-list> -->
+                <function-list id="delay" list="{{ functionList }}" bindpickerOpen="makePickerAction" binddelayTap="toggleDelay"></function-list>
+        </view>
+        <!-- 时间拾取器 -->
+        <time-picker wx:if="{{showPicker}}" style="z-index: {{showPicker ? 99999 : -99999}}" id="timePicker" binddelayTap="toggleDelay" bindpickerGone="pickerBack" timeIndex="{{ deviceStatus.delay_light_off - 1 }}"></time-picker>   
+</view>

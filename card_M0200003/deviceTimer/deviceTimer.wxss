@@ -1,0 +1,84 @@
+.container {
+  width: 750rpx;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-image: linear-gradient(180deg, rgba(255,106,76,0.12) 0%, rgba(255,107,77,0.00) 79%);
+}
+.card{
+  width: 686rpx;
+  height: 282rpx;
+  margin-left: 32rpx;
+  margin-top: 24rpx;
+  background-color: #ffffff;
+  border-radius: 32rpx;
+  display: flex;
+  position: relative;
+  box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.04);
+}
+.add-btn{
+  width: 686rpx;
+  position: fixed;
+  left: 32rpx;
+  bottom: 100rpx;
+}
+.btn-text {
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.card-name {
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #333333;
+  font-weight: 400;
+  position: absolute;
+  left: 48rpx;
+  top: 30rpx;
+}
+.card-switch {
+  position: absolute;
+  top: 28rpx;
+  right: 32rpx;
+}
+.line {
+  width: 622rpx;
+  height: 1px;
+  background-color: #f2f2f2;
+  position: absolute;
+  left: 32rpx;
+  top: 102rpx;
+}
+.card-time {
+  font-family: PingFangSC-Medium;
+  font-size: 48rpx;
+  color: #333333;
+  font-weight: 500;
+  position: absolute;
+  left: 48rpx;
+  top: 137rpx;
+}
+.loop-text {
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #666666;
+  text-align: center;
+  font-weight: 400;
+  position: absolute;
+  left: 48rpx;
+  top: 208rpx;
+}
+.card-btn {
+  width: 76rpx;
+  height: 48rpx;
+  border-radius: 38rpx;
+  background-color: #FEF6F5;
+  position: absolute;
+  top: 200rpx;
+  right: 32rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

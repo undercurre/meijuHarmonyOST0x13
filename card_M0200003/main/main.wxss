@@ -1,0 +1,447 @@
+.card-container{
+    width: 750rpx;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #F9F9F9;
+}
+.center{
+    justify-content: center;
+    align-items: center;
+}
+.bg-block{
+    width: 750rpx;
+    height: 750rpx;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: linear-gradient(to bottom, #F5EAE7 , #F9F9F9);
+    z-index: 0;
+}
+.bg-image{
+    width: 750rpx;
+    height: 750rpx;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+.status-panel{
+    width: 750rpx;
+    height: 600rpx;
+    z-index: 100;
+    position: relative;
+}
+.icon-product{
+    width: 360rpx;
+    height: 360rpx;
+    position: absolute;
+    left: 194rpx;
+    top: 120rpx;
+}
+.connect-block{
+    width: 178rpx;
+    height: 68rpx;
+    background-color: rgba(102, 102, 102, 0.1);
+    display: flex;
+    position: absolute;
+    left: 286rpx;
+    top: 34rpx;
+    border-radius: 34rpx;
+}
+.dot{
+    width: 14rpx;
+    height: 14rpx;
+    border-radius: 7rpx;
+    position: absolute;
+    left: 32rpx;
+    top: 27rpx;
+}
+.connect-text{
+    font-family: PingFangSC-Medium;
+    font-size: 28rpx;
+    color: #666666;
+    font-weight: 500;
+    margin-left: 30rpx;
+}
+.baby-man-entry{
+    width: 104rpx;
+    height: 56rpx;
+    position: absolute;
+    top: 32rpx;
+    right: 48rpx;
+}
+.babay-man-block {
+  height: 56rpx;
+  min-width: 120rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.04);
+  border-radius: 28rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  right: 20rpx;
+  top: 36rpx;
+}
+.baby-man-text {
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #666666;
+  font-weight: 400;
+  margin-left: 66rpx;
+  margin-right: 20rpx;
+}
+.baby-mam-icon {
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  left: 4rpx;
+  top: 4rpx;
+}
+.delay-block{
+    width: 750rpx;
+    height: 112rpx;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.delay-title{
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #8A8A8F;
+    font-weight: 400;
+}
+.delay-time{
+    font-family: PingFangSC-Medium;
+    font-size: 32rpx;
+    color: #666666;
+    font-weight: 500;
+}
+.battery-block{
+    width: 750rpx;
+    height: 72rpx;
+    background-color: #FEF6E9;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 164rpx;
+    z-index: 600;
+}
+.icon-tip{
+    width: 32rpx;
+    height: 32rpx;
+    margin-left: 32rpx;
+}
+.tip-text{
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #FFAA10;
+    font-weight: 400;
+    margin-left: 16rpx;
+}
+.tip-close{
+    width: 72rpx;
+    height: 72rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.card-block {
+  width: 686rpx;
+  height: 294rpx;
+  margin-left: 32rpx;
+  margin-top: 20rpx;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card-item-block {
+  width: 214rpx;
+  height: 294rpx;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.04);
+  border-radius: 32rpx;
+  display: flex;
+  position: relative;
+}
+.card-image {
+  width: 96rpx;
+  height: 96rpx;
+  position: absolute;
+  top: 40rpx;
+  left: 60rpx;
+}
+.card-name {
+  width: 214rpx;
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: 400;
+  position: absolute;
+  left: 0;
+  top: 186rpx;
+}
+.card-contant {
+  width: 214rpx;
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #8A8A8F;
+  font-weight: 400;
+  position: absolute;
+  left: 0;
+  top: 236rpx;
+}
+.bri-block{
+    width: 686rpx;
+    height: 220rpx;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.04);
+    border-radius: 32rpx;
+    margin-left: 32rpx;
+    margin-top: 20rpx;
+    display: flex;
+    position: relative;
+}
+.bri-slider{
+    width: 622rpx;
+    height: 40rpx;
+    position: absolute;
+    left: 32rpx;
+    top: 104rpx;
+}
+.title-block{
+    width: 400rpx;
+    height: 32rpx;
+    position: absolute;
+    left: 32rpx;
+    top: 32rpx;
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.bir-title-text{
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    color: #333333;
+    font-weight: 400;
+}
+.bri-title-line{
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #dddddd;
+    font-weight: 400;
+    margin-left: 16rpx;
+    margin-right: 16rpx;
+}
+.bri-min{
+    font-family: PingFangSC-Regular;
+    font-size: 20rpx;
+    color: #8A8A8F;
+    font-weight: 400;
+    position: absolute;
+    left: 32rpx;
+    bottom: 40rpx;
+}
+.bri-max{
+    font-family: PingFangSC-Regular;
+    font-size: 20rpx;
+    color: #8A8A8F;
+    font-weight: 400;
+    position: absolute;
+    right: 32rpx;
+    bottom: 40rpx;
+}
+.bottom-block{
+    width: 750rpx;
+}
+.bottom-item-left{
+    width: 278rpx;
+    margin-bottom: 40rpx;
+    margin-left: 97rpx;
+}
+.bottom-item-right{
+    width: 278rpx;
+    margin-bottom: 40rpx;
+    margin-right: 97rpx;
+}
+.history-panel{
+    width: 686rpx;
+    height: unset;
+    margin-left: 32rpx;
+    margin-top: 20rpx;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.04);
+    border-radius: 16px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+.blank{
+    width: 750rpx;
+    height: 300rpx;
+}
+.his-title-block{
+    width: 686rpx;
+    height: 96rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.his-text{
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    color: #000000;
+    font-weight: 400;
+    margin-left: 32rpx;
+}
+.his-more{
+    width: 120rpx;
+    height: 96rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.his-more-text{
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #666666;
+    font-weight: 400;
+    margin-right: 10rpx;
+}
+.his-more-arrow{
+    width: 20rpx;
+    height: 20rpx;
+    margin-right: 32rpx;
+}
+.show-more{
+    width: 112rpx;
+    height: 74rpx;
+    margin-left: 287rpx;
+    margin-right: 287rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+.show-more-text{
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #808080;
+    font-weight: 400;
+}
+.show-more-arrow{
+    width: 20rpx;
+    height: 20rpx;
+    margin-left: 16rpx;
+    margin-top: 10rpx;
+}
+.no-his-block{
+    width: 686rpx;
+    height: 200rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.no-his-text{
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #8A8A8F;
+    font-weight: 400;
+}
+.his-card{
+    width: 686rpx;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+.inner-card{
+    width: 516rpx;
+    height: 144rpx;
+    background-color: #f9f9f9;
+    position: absolute;
+    right: 32rpx;
+    top: 24rpx;
+    border-radius: 24rpx;
+}
+.inner-date-text{
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #666666;
+    font-weight: 400;
+    position: absolute;
+    left: 48rpx;
+    top: 32rpx;
+}
+.inner-main-text{
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    font-weight: 400;
+    position: absolute;
+    left: 48rpx;
+    top: 84rpx;
+}
+.inner-sub-text{
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #666666;
+    font-weight: 400;
+    position: absolute;
+    right: 48rpx;
+    top: 86rpx;
+}
+.his-type-icon{
+    width: 64rpx;
+    height: 64rpx;
+    position: absolute;
+    left: 42rpx;
+    top: 40rpx;
+}
+.line-start{
+    width: 1px;
+    height: 40rpx;
+    background-color: #E5E5E8;
+    position: absolute;
+    left: 74rpx;
+    top: 0;
+}
+.line-end{
+    width: 1px;
+    height: 90rpx;
+    background-color: #E5E5E8;
+    position: absolute;
+    left: 74rpx;
+    bottom: 0;
+}
+.dev-ser {
+  width: 240rpx;
+  height: 84rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.04);
+  border-radius: 26px;
+  margin-top: 32rpx;
+  margin-left: 254rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dev-ser-text {
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #333333;
+  font-weight: 500;
+}

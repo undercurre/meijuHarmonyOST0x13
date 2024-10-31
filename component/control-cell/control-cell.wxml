@@ -1,0 +1,5 @@
+<!--plugin/T0x13/component/control-cell/control-cell.wxml-->
+<view class="container" style="opacity: {{ disabled ? 0.4 : 1 }}">
+    <text>{{ title }}</text>
+    <image src="{{ buttonData.mainImg }}" class="button" bindtap="buttonTap"></image>
+</view>

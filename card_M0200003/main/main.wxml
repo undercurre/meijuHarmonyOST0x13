@@ -1,0 +1,122 @@
+<view class="card-container">
+    <!-- <view class="bg-block"></view> -->
+    <image class="bg-image" src="{{imageBG}}"></image>
+    <mx-nav-bar title="{{ deviceName }}" bgColor="#F5EAE7" z-index="{{500}}" bind:click-left="goback"></mx-nav-bar>
+
+    <!-- 低电量 -->
+    <view class="battery-block" wx:if="{{isLowBattery && !isUserCloseTip}}">
+        <image class="icon-tip" src="{{iconTip}}"></image>
+        <text class="tip-text">提示：母婴灯电量不足，请尽快充电</text>
+        <image class="tip-close" src="{{iconClose}}" bind:tap="onTipCloseClick"></image>
+    </view>
+
+    <!-- 状态 -->
+    <view class="status-panel">
+        <view class="connect-block center">
+            <view class="dot" style="background-color: {{ BlueToothStatus == 2 ? '#25CF42' : '#999999'}}"></view>
+            <text class="connect-text">{{BlueToothStatus == 2 ? isWorking ? '喂养中' : '已连接' : BlueToothStatus == 1 ? '连接中' : '未连接'}}</text>
+        </view>
+        <image class="icon-product" src="{{iconProduct}}"></image>
+
+        <view class="babay-man-block" bind:tap="goToBabyManage">
+          <image class="baby-mam-icon" src="{{iconBaby}}"></image>
+          <text class="baby-man-text">{{curBabyName}}</text>
+        </view>
+        <!-- <image class="baby-man-entry" src="{{iconBabyEntry}}" bind:tap="goToBabyManage"></image> -->
+
+        <view class="delay-block center">
+            <text class="delay-time">{{curDevDelayTime}}</text>
+            <text class="delay-title">延时关灯</text>
+        </view>
+    </view>
+
+    <!-- 亮度 -->
+    <view class="bri-block">
+        <view class="title-block">
+            <text class="bir-title-text">照明亮度</text>
+            <text class="bri-title-line">|</text>
+            <text class="bir-title-text">{{sliderValue}}%</text>
+        </view>
+        <mx-slider class="bri-slider" min="1" max="100" value="{{sliderValue}}" disabled="{{ isSliderDisable || BlueToothStatus != 2}}" active-color="#EE7356" bind:change="onBirghtSliderChange"/>
+        <text class="bri-min">1%</text>
+        <text class="bri-max">100%</text>
+    </view>
+
+    <!-- 卡片 -->
+    <view class="card-block">
+      <view class="card-item-block" wx:for="{{cardConfig}}" wx:key="key" bind:tap="onCardClick" data-item="{{index}}">
+        <image class="card-image" src="{{item.icon}}"></image>
+        <text class="card-name">{{item.name}}</text>
+        <text class="card-contant">{{item.contant}}</text>
+      </view>
+    </view>
+
+    <!-- 历史 -->
+    <view class="history-panel">
+        <view class="his-title-block">
+            <text class="his-text">最近喂养记录（近{{ historydata.length }}条）</text>
+            <view class="his-more" bind:tap="goToMoreHistory">
+                <text class="his-more-text">更多</text>
+                <image class="his-more-arrow" src="{{iconArrowRight}}"></image>
+            </view>
+        </view>
+
+        <view class="no-his-block" wx:if="{{historydata.length == 0}}">
+            <text class="no-his-text">暂无数据</text>
+        </view>
+
+        <view class="his-card" style="height: {{isHistoryShowMore? 192 : index > 2? 0 : 192}}rpx;" wx:for="{{historydata}}" wx:key="key">
+            <view class="line-start" wx:if="{{index != 0}}"></view>
+            <view class="line-end" wx:if="{{isHistoryShowMore ? index != historydata.length - 1 : index != historydata.length - 1 && index != 2}}"></view>
+            <image class="his-type-icon" src="{{item.type == 0 ? item.subType == 0 ? iconHisMonLeft : iconHisMonRight : iconHisMilk}}"></image>
+
+            <view class="inner-card" bind:tap="onHistoryItemClick" data-item="{{index}}">
+                <text class="inner-date-text">{{item.dateStr}}</text>
+                <text class="inner-main-text" style="color: {{item.type == 0 ? '#FF6A4C' : '#267AFF'}}">{{item.main}}</text>
+                <text class="inner-sub-text">{{item.sub}}</text>
+            </view>
+        </view>
+        
+        <view class="show-more" bind:tap="onShowMoreClick" wx:if="{{historydata.length > 3}}">
+            <text class="show-more-text">{{isHistoryShowMore? '收起' : '展开'}}</text>
+            <image class="show-more-arrow" style="transform: rotate({{isHistoryShowMore ? -90 : 90}}deg)" src="{{iconArrowRight}}"></image>
+        </view>
+    </view>
+
+    <!-- <div class="dev-ser" bind:tap="onDeviceSerClick">
+      <text class="dev-ser-text">设备管理</text>
+    </div> -->
+
+    <view class="blank"></view>
+
+    <!-- 底部 -->
+    <mx-tabbar class="bottom-block" border-radius box-shadow>
+        <mx-tabbar-item class="bottom-item-left" 
+          active-color="#EE7356" 
+          checked="{{bottomConfig.powerOn}}" 
+          icon="{{bottomConfig.iconPowerOff}}" 
+          active-icon="{{bottomConfig.iconPowerOn}}" 
+          disabled="{{BlueToothStatus != 2}}"
+          bind:change="onPowerClick">开关</mx-tabbar-item>
+        <mx-tabbar-item class="bottom-item-right" 
+          active-color="#EE7356" 
+          checked="{{bottomConfig.timerOn}}" 
+          icon="{{bottomConfig.iconTimerOff}}" 
+          active-icon="{{bottomConfig.iconTimerOn}}" 
+          disabled="{{BlueToothStatus != 2 || !bottomConfig.powerOn}}"
+          bind:change="onTimerClick">延时关灯</mx-tabbar-item>  
+    </mx-tabbar>
+
+    <!-- 延迟关灯选择 -->
+    <mx-picker
+        description="设备预计在今天 {{delayCalcTimeStr}} 关灯"
+        select-description="分钟后关灯"
+        show="{{ isShowDelaySetting }}"
+        columns="{{ delayConfig }}"
+        default-index="{{ curDelaySelectIndex }}"
+        bind:change="onDelaySetChange"
+        bind:confirm="onDelaySetConfirm"
+        bind:cancel="onDelaySetCancel"
+        bind:close="onDelaySetCancel"
+    />
+</view>

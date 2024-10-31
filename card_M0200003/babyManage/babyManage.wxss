@@ -1,0 +1,99 @@
+.container {
+    width: 750rpx;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #F9F9F9;
+}
+.card{
+    width: 686rpx;
+    height: 144rpx;
+    border-radius: 32rpx;
+    margin-top: 32rpx;
+    margin-left: 32rpx;
+    background-color: #ffffff;
+    display: flex;
+    position: relative;
+}
+.baby-icon{
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    left: 48rpx;
+    top: 32rpx;
+}
+.title-block{
+    width: 440rpx;
+    height: 44rpx;
+    position: absolute;
+    left: 160rpx;
+    top: 30rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.title-text{
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    color: rgba(0,0,0,0.85);
+    font-weight: 400;
+}
+.cur-block{
+    width: 128rpx;
+    height: 40rpx;
+    border-radius: 24rpx;
+    background-color: #FDF1EE;
+    margin-left: 32rpx;display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cur-text{
+    font-family: PingFangSC-Medium;
+    font-size: 22rpx;
+    color: #FF6A4C;
+    font-weight: 500;
+}
+.age-text{
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #8A8A8F;
+    font-weight: 400;
+    position: absolute;
+    left: 160rpx;
+    top: 90rpx;
+}
+.card-mask{
+    width: 586rpx;
+    height: 144rpx;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.icon-edit{
+  width: 44rpx;
+  height: 44rpx;
+  position: absolute;
+  top: 50rpx;
+  right: 34rpx;
+}
+.add-btn{
+    width: 686rpx;
+    height: 92rpx;
+    background-color: #FF6A4C;
+    border-radius: 46rpx;
+    position: fixed;
+    left: 32rpx;
+    bottom: 88rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-text{
+    font-family: PingFangSC-Semibold;
+    font-size: 32rpx;
+    color: #FFFFFF;
+    font-weight: 600;
+}

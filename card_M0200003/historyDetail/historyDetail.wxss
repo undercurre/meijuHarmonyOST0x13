@@ -1,0 +1,151 @@
+.container{
+    width: 750rpx;
+    min-height: 100vh;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #F9F9F9;
+    overflow: hidden;
+}
+.top-block{
+    width: 750rpx;
+    height: 260rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    background-color: #FFFFFF;
+}
+.tab-block{
+    width: 750rpx;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.date-block{
+    width: 750rpx;
+    height: 528rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 190;
+    background-color: #F9F9F9;
+}
+.date-card{
+    width: 686rpx;
+    height: 240rpx;
+    border-radius: 32rpx;
+    background-color: #FFFFFF;
+    position: absolute;
+    left: 32rpx;
+    bottom: 4rpx;
+    display: flex;
+    flex-direction: column;
+}
+.date-text-block {
+  width: 350rpx;
+  height: 64rpx;
+  margin-top: 28rpx;
+  margin-left: 168rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.date-text{
+    font-family: PingFangSC-Medium;
+    font-size: 32rpx;
+    color: #333333;
+    font-weight: 500;
+}
+.left-right-btn{
+    width: 100rpx;
+    height: 44rpx;
+    display: flex;
+    position: absolute;
+    top: 38rpx;
+    justify-content: center;
+    align-items: center;
+}
+.left-right-icon{
+    width: 32rpx;
+    height: 32rpx;
+}
+.total-text{
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #666666;
+    font-weight: 400;
+    margin-left: 48rpx;
+    margin-top: 24rpx;
+}
+.no-data{
+  width: 686rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #666666;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 50rpx;
+}
+.blank{
+    width: 750rpx;
+    height: 350rpx;
+}
+.blank-2{
+    width: 750rpx;
+    height: 120rpx;
+}
+.data-card{
+    width: 686rpx;
+    height: 144rpx;
+    border-radius: 32rpx;
+    background-color: #FFFFFF;
+    margin-top: 24rpx;
+    margin-left: 32rpx;
+    overflow: hidden;
+}
+.contant-block {
+  width: 686rpx;
+  height: 144rpx;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.swipe-block {
+  width: 144rpx;
+  height: 144rpx;
+  background-color: #ff0000;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.time-text{
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    color: #333333;
+    font-weight: 400;
+    margin-left: 48rpx;
+    width: 138rpx;
+}
+.type-text{
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    color: #000000;
+    font-weight: 400;
+}
+.content-text{
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #666666;
+    font-weight: 400;
+    margin-right: 48rpx;
+}
+.calendar {
+  z-index: 300;
+  --calendar-height: 860rpx;
+  --calendar-popup-height: 960rpx
+}

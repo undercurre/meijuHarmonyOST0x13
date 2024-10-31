@@ -1,0 +1,97 @@
+<view class="container">
+    <mx-nav-bar title="母乳喂养" bgColor="#F6EAE6" z-index="{{500}}" bind:click-left="goback"></mx-nav-bar>
+
+    <mx-tabs class="top-tab" type="card" color="#EAE0DD" titleActiveColor="#333333" titleInactiveColor="#8A8A8F" active="{{ curTabIndex }}" bind:change="onTabClick">
+      <mx-tab title="计时">
+        <view class="tab-page" style="height: 616rpx;">
+            <text class="timing-text">{{ curShowTimeText }}</text>
+            <text class="timing-start-text">开始时间 {{ curShowStartTimeText }}</text>
+
+            <view class="time-block">
+              <view class="btn-left" style="background-image: {{ isLeftRunning ? 'linear-gradient(163deg, #FFA383 17%, #FF6A4C 98%)' : 'radial-gradient(circle at 50% 50%, #FFFFFF, #FFFAF9)'}};" bind:tap="onLeftBtnClick" bind:longpress="onLeftBtnLongClick">
+                <image class="btn-image" src="{{ isLeftRunning ? iconStop : iconStart }}"></image>
+                <text class="long-tip" wx:if="{{ !isLeftRunning && localConfig.addUp1 > 0 }}">长按清除</text>
+              </view>
+              <text class="lr-time-text" style="left: 0;">左侧 {{curLeftTimeText}}</text>
+
+              <view class="btn-right" style="background-image: {{ isRightRunning ? 'linear-gradient(163deg, #FFA383 17%, #FF6A4C 98%)' : 'radial-gradient(circle at 50% 50%, #FFFFFF, #FFFAF9)'}};" bind:tap="onRightBtnClick" bind:longpress="onRightBtnLongClick">
+                <image class="btn-image" src="{{ isRightRunning ? iconStop : iconStart }}"></image>
+                <text class="long-tip" wx:if="{{ !isRightRunning && localConfig.addUp2 > 0 }}">长按清除</text>
+              </view>
+              <text class="lr-time-text" style="right: 0;">右侧 {{curRightTimeText}}</text>
+            </view>
+
+        </view>
+      </mx-tab>
+      <mx-tab title="手动记录">
+        <view class="tab-page" style="height: 610rpx;">
+          <view class="mon-type-data-block">
+            <mx-cell-group>
+                <mx-cell title="{{item.name}}" 
+                    value="{{item.value}}" 
+                    wx:for="{{montherDataList}}" 
+                    wx:key="key" 
+                    bind:tap="onMontherDataItemClick" 
+                    data-item="{{index}}">
+                    <mx-icon class="cell-arrow" slot="right-icon" name="arrow" color="#C8C7CC" size="28rpx" wx:if="{{item.isCanEdit}}" />
+                </mx-cell>
+            </mx-cell-group>
+          </view>
+
+        </view>
+      </mx-tab>
+    </mx-tabs>
+
+    <view class="note-block">
+      <text class="note-title">备注</text>
+      <view class="input-block">
+          <mx-field value="{{ curNote }}" 
+              type="textarea" 
+              placeholder="选填" 
+              autosize 
+              maxlength="20" 
+              show-word-limit="true"
+              custom-style="background-color: #F9F9F9; border-radius: 32rpx;"
+              bind:change="onInputChange">
+          </mx-field>
+      </view>
+    </view>
+
+    <view class="bottom-block">
+      <mx-button round type="default" size="large" color="#FEF6F5" style="width: 332rpx;" bind:click="onGiveUpClick" wx:if="{{curTabIndex == 0}}">
+        <text class="btn-text" style="color: #FF6A4C;">放弃</text>
+      </mx-button>
+      <mx-button round type="default" size="large" color="#FF6A4C" style="width: 332rpx;" bind:click="onFinishClick" wx:if="{{curTabIndex == 0}}">
+        <text class="btn-text" style="color: #ffffff;">完成并保存</text>
+      </mx-button>
+      <mx-button round type="default" size="large" color="#FF6A4C" style="width: 686rpx;" bind:click="onRecordSaveClick" wx:if="{{curTabIndex == 1}}">
+        <text class="btn-text" style="color: #ffffff;">保存</text>
+      </mx-button>
+    </view>
+
+    <mx-datetime-picker
+      description="请选择时间"
+      bind:confirm="onDatePickConfirm"
+      bind:cancel="onDatePickCancel"
+      bind:close="onDatePickCancel"
+      show="{{ isShowDatePicker }}"
+      type="datetime"
+      data-type="datetime"
+      value="{{ curPickDate }}"
+      min-date="{{ minPickDate }}"
+      max-date="{{ maxPickDate }}"
+    />
+
+    <mx-picker
+      bind:confirm="onTimeLongPickConfirm"
+      bind:cancel="onTimeLongPickCancel"
+      bind:close="onTimeLongPickCancel"
+      description="请选择时长"
+      show="{{ isShowTimeLongPicker }}"
+      columns="{{ timerLongArr }}"
+      select-description="分钟"
+      default-index="{{ curTimeLongIndex }}"
+    />
+
+    <mx-toast id="mx-toast"/>
+</view>

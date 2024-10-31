@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+    "usingComponents": {
+        "mx-nav-bar": "/miniprogram_npm/m-ui/mx-nav-bar/index",
+        "mx-toast": "/miniprogram_npm/m-ui/mx-toast/index",
+        "mx-button": "/miniprogram_npm/m-ui/mx-button/index",
+        "mx-icon": "/miniprogram_npm/m-ui/mx-icon/index",
+        "mx-switch": "/miniprogram_npm/m-ui/mx-switch/index"
+    }
+}

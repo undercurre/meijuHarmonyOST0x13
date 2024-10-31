@@ -1,0 +1,16 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "智能吸顶灯",
+  "navigationBarBackgroundColor": "#F9F9F9",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "plugin-navbar": "/pages/component/plugin-navbar/plugin-navbar",
+    "footer": "/plugin/component/footer/footer",
+    "card_79009833": "../card_79009833/card_79009833",
+    "card_M0200003": "../card_M0200003/main/main",
+    "card0": "../card0/card0",
+    "mx-toast": "/miniprogram_npm/m-ui/mx-toast/index",
+    "mx-dialog": "/miniprogram_npm/m-ui/mx-dialog/index"
+  }
+}
